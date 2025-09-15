@@ -247,7 +247,8 @@ If that is not set, then the system default will be used.
 	open var strikethrough = BasicStyles()
 	
 	public var bullet : String = "・"
-	public var listIndent: CGFloat = 60.0
+	public var bulletStyle : [CharacterStyle] = []
+	public var listIndent: CGFloat = 30.0
 	
 	public var underlineLinks : Bool = false
 	
@@ -529,7 +530,7 @@ extension SwiftyMarkdown {
 			paragraphStyle.headIndent = addition
 
 			attributes[.paragraphStyle] = paragraphStyle
-				finalTokens.insert(Token(type: .string, inputString: "\(indent)\(listItem)\t", characterStyles: [CharacterStyle.bold]), at: 0)
+				finalTokens.insert(Token(type: .string, inputString: "\(indent)\(listItem)\t", characterStyles: self.bulletStyle), at: 0)
 			
 		case .yaml:
 			lineProperties = body
