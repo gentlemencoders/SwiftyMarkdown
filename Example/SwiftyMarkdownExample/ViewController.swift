@@ -42,12 +42,13 @@ class ViewController: UIViewController {
 			
 			md.code.fontName = "CourierNewPSMT"
 			
-
+/*
 			if #available(iOS 13.0, *) {
-				md.strikethrough.color = .tertiaryLabel
+				md.strikethrough.color = UIColor.tertiaryLabel
 			} else {
-				md.strikethrough.color = .lightGray
+				md.strikethrough.color = UIColor.lightGray
 			}
+*/
 			
 			md.blockquotes.fontStyle = .italic
 		

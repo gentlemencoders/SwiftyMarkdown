@@ -247,6 +247,7 @@ If that is not set, then the system default will be used.
 	open var strikethrough = BasicStyles()
 	
 	public var bullet : String = "・"
+	public var listIndent: CGFloat = 60.0
 	
 	public var underlineLinks : Bool = false
 	
@@ -506,7 +507,7 @@ extension SwiftyMarkdown {
 			attributes[.paragraphStyle] = paragraphStyle
 		case .unorderedList, .unorderedListIndentFirstOrder, .unorderedListIndentSecondOrder, .orderedList, .orderedListIndentFirstOrder, .orderedListIndentSecondOrder:
 			
-			let interval : CGFloat = 30
+			let interval = self.listIndent
 			var addition = interval
 			var indent = ""
 			switch line.lineStyle as! MarkdownLineStyle {
@@ -528,7 +529,7 @@ extension SwiftyMarkdown {
 			paragraphStyle.headIndent = addition
 
 			attributes[.paragraphStyle] = paragraphStyle
-			finalTokens.insert(Token(type: .string, inputString: "\(indent)\(listItem)\t"), at: 0)
+				finalTokens.insert(Token(type: .string, inputString: "\(indent)\(listItem)\t", characterStyles: [CharacterStyle.bold]), at: 0)
 			
 		case .yaml:
 			lineProperties = body
