@@ -40,7 +40,7 @@ class ViewController: UIViewController {
 			md.h2.color = UIColor.blue
 			md.h2.alignment = .center
 			md.listIndent = 8.0
-			//md.bulletStyle = [CharacterStyle.bold]
+			md.bulletStyle = [CharacterStyle.bold]
 			md.code.fontName = "CourierNewPSMT"
 			
 /*
